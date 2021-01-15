@@ -1,1 +1,3 @@
 test.txt file 
+
+Good! Git repository is completed!!!
