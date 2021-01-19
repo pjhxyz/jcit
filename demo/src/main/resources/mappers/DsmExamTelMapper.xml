@@ -11,4 +11,12 @@
   	  FROM dsm_exam_tel
   </select>
 
+  <select id="selectDsmExamTelById" parameterType="BigDecimal"
+		resultType="com.example.demo.DsmExamTelDTO"><!-- selectDsmExamTel()메서드를 호출하면 실행할 SELECT문이며, 
+						DsmExamTelDTO 객체를 파라미터로 받아, DsmExamTelDTO객체를 반환합니다.-->
+  	SELECT LOG_DATE, USER_NAME, LOG_COUNT 
+  	  FROM DSM_EXAM_TEL
+  	 WHERE LOG_DATE = #{id}
+  </select>
+
 </mapper>

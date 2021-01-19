@@ -13,9 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 @MapperScan(basePackages="com.example.demo")//탐색할 패키지 설정
 public class HelloRestController {
 	
-	@Autowired
-	private MyDataService service;
-	private DsmExamTelDTO dsmExamTelDTO;
+//	@Autowired
+//	private DsmExamTelDTO dsmExamTelDTO;
 	@Autowired
 	private DsmExamTelDAO dsmExamTelDAO;
 	
@@ -41,10 +40,16 @@ public class HelloRestController {
 		
 	}
 
-		@RequestMapping("/rest/{id}")
-	public DataObject index(@PathVariable int id) {
-//		return "Hello, I love jiwoojian! " + id;
-		return new DataObject(id,names[id],mails[id]);
+//	@RequestMapping("/rest/{id}")
+//	public DataObject index(@PathVariable int id) {
+////		return "Hello, I love jiwoojian! " + id;
+//		return new DataObject(id,names[id],mails[id]);
+//	}
+
+	@RequestMapping("/rest/{id}")
+	public List<DsmExamTelDTO> index2(@PathVariable int id) throws Exception {
+		return dsmExamTelDAO.selectDsmExamTelById(new BigDecimal(id));
 	}
+
 }
 	
