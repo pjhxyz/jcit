@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<title>edit page</title>
+<style>
+h1 { font-size:18pt; font-weight:bold; color:gray; }
+body { font-size:13pt; color:gray; margin:5px 25px; }
+</style>
+</head>
+<body>
+	<h1>Hello page</h1>
+	<h1 th:text="#{title}">Delete page2</h1>
+
+	<p class="msg" th:text="${msg}">this is Thymeleaf sample page.</p>
+	<p>${value}</p>
+	<form method="post" action="/edit" th:object="${formModel}">
+		<input type="hidden" name="id" th:value="*{id}" />
+		<label for="name">이름</label><input type="text" name="name" th:value="*{name}" />
+		<br>
+		<label for="name">연령</label><input type="text" name="age" /> <!-- th:value="*{age}" />   -->
+	
+		<input type="submit" value="저장" />
+	</form>
+</body>
+</html>
